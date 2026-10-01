@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Analysis Report</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-primary text-white">
+            <h2>AI Phishing Email Analyzer Report</h2>
+        </div>
+
+        <div class="card-body">
+
+            <h4>Email Details</h4>
+            <hr>
+
+            <p><strong>From :</strong> {{ email_data.sender }}</p>
+
+            <p><strong>To :</strong> {{ email_data.receiver }}</p>
+
+            <p><strong>Subject :</strong> {{ email_data.subject }}</p>
+
+            <p><strong>Date :</strong> {{ email_data.date }}</p>
+
+            <hr>
+
+            <h4>Email Body</h4>
+
+            <pre>{{ email_data.body }}</pre>
+
+            <hr>
+
+            <h4>URLs Found</h4>
+
+            {% if email_data.urls %}
+
+                <ul>
+
+                {% for url in email_data.urls %}
+
+                    <li>{{ url }}</li>
+
+                {% endfor %}
+
+                </ul>
+
+            {% else %}
+
+                <p>No URLs Found</p>
+
+            {% endif %}
+
+            <hr>
+
+            <h4>Attachments</h4>
+
+            {% if email_data.attachments %}
+
+                <ul>
+
+                {% for file in email_data.attachments %}
+
+                    <li>{{ file }}</li>
+
+                {% endfor %}
+
+                </ul>
+
+            {% else %}
+
+                <p>No Attachments</p>
+
+            {% endif %}
+
+            <hr>
+
+            <h3>Risk Analysis</h3>
+
+            <h4>
+                Risk Score :
+                <span class="badge bg-danger">
+                    {{ result.score }}
+                </span>
+            </h4>
+
+            <h4>
+                Verdict :
+                {% if result.verdict == "PHISHING" %}
+
+                    <span class="badge bg-danger">
+                        {{ result.verdict }}
+                    </span>
+
+                {% elif result.verdict == "SUSPICIOUS" %}
+
+                    <span class="badge bg-warning text-dark">
+                        {{ result.verdict }}
+                    </span>
+
+                {% else %}
+
+                    <span class="badge bg-success">
+                        {{ result.verdict }}
+                    </span>
+
+                {% endif %}
+            </h4>
+
+            <hr>
+
+            <h4>Findings</h4>
+
+            <ul>
+
+                {% for item in result.findings %}
+
+                    <li>{{ item }}</li>
+
+                {% endfor %}
+
+            </ul>
+
+            <hr>
+
+            <h4>Recommendation</h4>
+
+            {% if result.verdict == "PHISHING" %}
+
+                <div class="alert alert-danger">
+
+                    Do NOT click any links.<br>
+
+                    Do NOT download attachments.<br>
+
+                    Report this email to your Security Team.
+
+                </div>
+
+            {% elif result.verdict == "SUSPICIOUS" %}
+
+                <div class="alert alert-warning">
+
+                    Verify the sender before taking any action.
+
+                </div>
+
+            {% else %}
+
+                <div class="alert alert-success">
+
+                    This email appears to be safe.
+
+                </div>
+
+            {% endif %}
+
+            <a href="/analyze" class="btn btn-primary">
+                Analyze Another Email
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
