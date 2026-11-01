@@ -17,7 +17,7 @@
         <h2 class="text-center">🛡 AI Phishing Email Analyzer</h2>
 
         <p class="text-center text-muted">
-            College Project
+            
         </p>
 
         <input type="text" class="form-control mb-3" placeholder="Username">
@@ -30,6 +30,234 @@
 
     </div>
 </div>
+<style>
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+        radial-gradient(ellipse at 20% 20%, #172554 0%, transparent 45%),
+        radial-gradient(ellipse at 80% 80%, #312e81 0%, transparent 40%),
+        #030712;
+    color: #f1f5f9;
+    font-family: 'Segoe UI', sans-serif;
+}
 
+form {
+    width: min(360px, calc(100% - 64px));
+    padding: 30px;
+    background: linear-gradient(
+        145deg,
+        rgba(30, 41, 75, 0.88),
+        rgba(8, 15, 35, 0.96)
+    );
+    border: 1px solid rgba(103, 232, 249, 0.4);
+    border-radius: 22px;
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.5),
+        0 0 28px rgba(34, 211, 238, 0.12),
+        inset 0 1px rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(18px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+form:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.5),
+        0 0 35px rgba(34, 211, 238, 0.2);
+}
+
+h1, h2 {
+    color: #67e8f9;
+    text-align: center;
+    text-shadow: 0 0 16px rgba(34, 211, 238, 0.3);
+}
+
+label {
+    display: block;
+    color: #e2e8f0;
+    margin: 14px 0 7px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #475569;
+    background: #0b1225;
+    color: #f8fafc;
+    outline: none;
+}
+
+input:focus {
+    border-color: #67e8f9;
+    box-shadow: 0 0 12px rgba(34, 211, 238, 0.2);
+}
+
+button, input[type="submit"] {
+    width: 100%;
+    margin-top: 20px;
+    padding: 13px;
+    border: 0;
+    border-radius: 11px;
+    background: linear-gradient(120deg, #0891b2, #4f46e5, #7c3aed);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover, input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.3);
+}
+
+a {
+    color: #67e8f9;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        transition: none !important;
+    }
+}
+/* Stronger 3D login card */
+form {
+    position: relative;
+    isolation: isolate;
+    transform: perspective(1000px) rotateX(2deg);
+    border: 1px solid rgba(103, 232, 249, 0.65);
+    background: linear-gradient(
+        135deg,
+        rgba(30, 41, 75, 0.95),
+        rgba(10, 15, 35, 0.98)
+    );
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.55),
+        0 0 25px rgba(34, 211, 238, 0.18),
+        inset 0 1px 1px rgba(255, 255, 255, 0.16);
+}
+
+form::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(
+        135deg,
+        rgba(103, 232, 249, 0.18),
+        transparent 45%,
+        rgba(139, 92, 246, 0.18)
+    );
+    z-index: -1;
+    pointer-events: none;
+}
+
+form:hover {
+    transform: perspective(1000px) rotateX(0deg) translateY(-5px);
+    box-shadow:
+        0 35px 70px rgba(0, 0, 0, 0.6),
+        0 0 35px rgba(34, 211, 238, 0.28);
+}
+
+/* Give the login button depth */
+button, input[type="submit"] {
+    box-shadow:
+        0 6px 0 #3730a3,
+        0 12px 24px rgba(56, 189, 248, 0.18);
+}
+
+button:active, input[type="submit"]:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #3730a3;
+}
+/* 3D login card */
+.login-box {
+    position: relative;
+    transform: perspective(1000px) rotateX(2deg);
+    transform-style: preserve-3d;
+    background: linear-gradient(
+        145deg,
+        rgba(24, 40, 75, 0.98),
+        rgba(7, 15, 35, 0.98)
+    ) !important;
+    border: 1px solid rgba(103, 232, 249, 0.65);
+    border-radius: 22px;
+    padding: 35px;
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.5),
+        0 0 25px rgba(34, 211, 238, 0.18),
+        inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.login-box:hover {
+    transform: perspective(1000px) rotateX(0deg) translateY(-6px);
+    box-shadow:
+        0 35px 60px rgba(0, 0, 0, 0.55),
+        0 0 35px rgba(34, 211, 238, 0.3);
+}
+
+/* Heading */
+.login-box h2 {
+    color: #67e8f9;
+    font-weight: 700;
+    text-shadow: 0 0 15px rgba(34, 211, 238, 0.25);
+    margin-bottom: 25px;
+}
+
+/* Input fields */
+.login-box .form-control {
+    background: #0b1225;
+    color: #f8fafc;
+    border: 1px solid #475569;
+    border-radius: 11px;
+    padding: 12px;
+}
+
+.login-box .form-control::placeholder {
+    color: #cbd5e1;
+}
+
+.login-box .form-control:focus {
+    border-color: #67e8f9;
+    box-shadow: 0 0 14px rgba(34, 211, 238, 0.2);
+}
+
+/* Login button */
+.login-box .btn-primary {
+    background: linear-gradient(120deg, #0891b2, #4f46e5, #7c3aed);
+    border: none;
+    border-radius: 11px;
+    padding: 12px;
+    font-weight: 700;
+    box-shadow: 0 6px 0 #3730a3;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.login-box .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 22px rgba(56, 189, 248, 0.3);
+}
+
+.login-box .btn-primary:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #3730a3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .login-box,
+    .login-box .btn-primary {
+        transition: none;
+    }
+}
+</style>
 </body>
 </html>

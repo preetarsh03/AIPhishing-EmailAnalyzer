@@ -51,7 +51,7 @@ def analyze_email(email_data):
     # URL Analysis
     # --------------------
 
-    urls = email_data["urls"]
+    urls = email_data.get("urls", email_data.get("links", []))
 
     if len(urls):
 

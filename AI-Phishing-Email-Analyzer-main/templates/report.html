@@ -172,6 +172,146 @@
     </div>
 
 </div>
+<style>
+body {
+    background: radial-gradient(circle at top right, #172554, #080d1f 55%, #030712);
+    color: #e2e8f0;
+    font-family: 'Segoe UI', sans-serif;
+}
 
+h1, h2, h3 {
+    color: #67e8f9;
+    text-shadow: 0 0 14px rgba(34, 211, 238, 0.3);
+}
+
+.container, .card, section {
+    background: rgba(15, 23, 42, 0.78);
+    border: 1px solid rgba(103, 232, 249, 0.2);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 18px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover, section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 35px rgba(34, 211, 238, 0.12);
+}
+
+a, strong {
+    color: #67e8f9;
+}
+
+button, input[type="submit"] {
+    background: linear-gradient(135deg, #0891b2, #6366f1);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 11px 20px;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #334155;
+    text-align: left;
+}
+
+th {
+    color: #67e8f9;
+}
+
+@media (max-width: 600px) {
+    .container, .card, section {
+        padding: 12px;
+    }
+}
+/* Improve text readability */
+body, p, li, label, td {
+    color: #f1f5f9;
+}
+
+h1, h2, h3, h4 {
+    color: #67e8f9;
+}
+
+input, textarea, select {
+    color: #f8fafc;
+    background-color: #111c35;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #cbd5e1;
+}
+
+pre, .email-body, .email-details {
+    color: #f1f5f9;
+}
+/* Premium 3D glass effect */
+.container, .card, section {
+    background: linear-gradient(
+        145deg,
+        rgba(20, 35, 70, 0.92),
+        rgba(8, 15, 35, 0.96)
+    );
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 18px;
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Lift cards on hover */
+.container:hover, .card:hover, section:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 18px 35px rgba(0, 0, 0, 0.35),
+        0 0 18px rgba(34, 211, 238, 0.12);
+}
+
+/* Premium headings */
+h1, h2, h3 {
+    letter-spacing: 0.3px;
+    text-shadow: 0 0 12px rgba(34, 211, 238, 0.22);
+}
+
+/* Smooth, glowing buttons */
+button, input[type="submit"] {
+    background: linear-gradient(120deg, #0891b2, #4f46e5, #7c3aed);
+    background-size: 180% 180%;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(79, 70, 229, 0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+button:hover, input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 9px 24px rgba(56, 189, 248, 0.3);
+}
+
+/* Clear separators */
+th, td {
+    border-color: rgba(148, 163, 184, 0.22);
+}
+
+/* Respect reduced-motion settings */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+</style>
 </body>
 </html>

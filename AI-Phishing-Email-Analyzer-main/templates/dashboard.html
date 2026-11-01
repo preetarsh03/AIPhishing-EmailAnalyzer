@@ -11,6 +11,421 @@
 
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
+<style>
+/* Premium Dashboard Theme */
+body {
+    background: linear-gradient(135deg, #07111f, #101d35, #172554);
+    color: #f1f5f9;
+    font-family: "Segoe UI", Arial, sans-serif;
+    min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+    background: rgba(7, 17, 31, 0.95) !important;
+    border-bottom: 1px solid rgba(103, 232, 249, 0.3);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-brand {
+    color: #67e8f9 !important;
+    font-weight: 750;
+    letter-spacing: 0.6px;
+}
+
+/* Dashboard Cards */
+.card {
+    background: linear-gradient(145deg, #172944, #101c32);
+    border: 1px solid rgba(103, 232, 249, 0.25);
+    border-radius: 18px;
+    color: #f8fafc;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(34, 211, 238, 0.2);
+    border-color: #67e8f9;
+}
+
+.card-body {
+    padding: 25px;
+}
+
+.card h5 {
+    color: #cbd5e1;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.card h2 {
+    color: #67e8f9;
+    font-size: 35px;
+    font-weight: 800;
+    text-shadow: 0 0 12px rgba(34, 211, 238, 0.25);
+}
+
+/* Dashboard headings and text */
+h1, h2, h3, h4 {
+    color: #67e8f9;
+    font-weight: 750;
+}
+
+p, label, span {
+    line-height: 1.7;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 10px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Center Dashboard Content */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+body > .container.mt-5 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+/* Center the dashboard cards */
+body > .container.mt-5 > .row {
+    justify-content: center;
+    align-items: center;
+    row-gap: 25px;
+}
+
+/* Dashboard layout improvement */
+body {
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Keep navbar at the top and center dashboard below it */
+body > .container.mt-5 {
+    width: 100%;
+    max-width: 1200px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 0 !important;
+    padding: 45px 24px;
+}
+
+/* Make all four cards evenly spaced */
+body > .container.mt-5 > .row {
+    width: 100%;
+    margin: 0;
+    justify-content: center;
+    align-items: stretch;
+    row-gap: 24px;
+}
+
+/* Larger, balanced cards */
+body > .container.mt-5 .col-md-3 {
+    display: flex;
+}
+
+body > .container.mt-5 .card {
+    width: 100%;
+    min-height: 155px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+body > .container.mt-5 .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 28px 16px;
+}
+
+body > .container.mt-5 .card h5 {
+    font-size: 17px;
+    margin-bottom: 14px;
+}
+
+body > .container.mt-5 .card h2 {
+    font-size: 38px;
+    margin: 0;
+}
+
+/* Mobile screen adjustment */
+@media (max-width: 767px) {
+    body > .container.mt-5 {
+        padding: 30px 20px;
+    }
+
+    body > .container.mt-5 .col-md-3 {
+        width: 100%;
+    }
+}
+
+/* 3D Risk Score Gauge */
+
+.risk-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.risk-gauge {
+    width: 155px;
+    height: 155px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: conic-gradient(
+        #22d3ee var(--score),
+        #263750 var(--score)
+    );
+    box-shadow:
+        0 0 25px rgba(34, 211, 238, 0.3),
+        0 12px 28px rgba(0, 0, 0, 0.4),
+        inset 0 0 10px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.risk-gauge:hover {
+    transform: scale(1.07);
+    box-shadow:
+        0 0 38px rgba(34, 211, 238, 0.45),
+        0 15px 30px rgba(0, 0, 0, 0.45);
+}
+
+.risk-gauge-inner {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background: radial-gradient(circle at top left, #1b3150, #07111f);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.risk-gauge-inner strong {
+    color: #67e8f9;
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.risk-gauge-inner span {
+    color: #e2e8f0;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+/* Premium dashboard heading */
+.dashboard-heading {
+    text-align: center;
+    padding: 35px 15px 10px;
+}
+.dashboard-heading h1 {
+    font-size: clamp(42px, 5vw, 64px);
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #e8fbff;
+    text-shadow:
+        0 0 10px rgba(34, 211, 238, 0.5),
+        0 0 28px rgba(34, 211, 238, 0.35);
+    margin-bottom: 14px;
+    line-height: 1.2;
+}
+
+.dashboard-heading p {
+    color: #9fbfd3;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+}
+
+/* Standalone circular Risk Score */
+.risk-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.risk-gauge {
+    width: 155px;
+    height: 155px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: conic-gradient(
+        #22d3ee var(--score),
+        #263750 var(--score)
+    );
+    box-shadow:
+        0 0 25px rgba(34, 211, 238, 0.3),
+        0 12px 28px rgba(0, 0, 0, 0.4),
+        inset 0 0 10px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.risk-gauge:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 35px rgba(34, 211, 238, 0.5);
+}
+
+.risk-gauge-inner {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at top left,
+        #1b3150,
+        #07111f
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.risk-gauge-inner strong {
+    color: #67e8f9;
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.risk-gauge-inner span {
+    color: #e2e8f0;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+/* Premium 3D dashboard cards */
+body > .container.mt-5 .card {
+    position: relative;
+    overflow: hidden;
+    min-height: 190px;
+    width: 100%;
+    border: 1px solid rgba(103, 232, 249, 0.45);
+    border-radius: 22px;
+    background: linear-gradient(
+        145deg,
+        rgba(20, 65, 95, 0.88),
+        rgba(7, 20, 40, 0.96)
+    );
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.35),
+        inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body > .container.mt-5 .card:hover {
+    transform: translateY(-10px) scale(1.03);
+    border-color: #22d3ee;
+    box-shadow:
+        0 20px 35px rgba(0, 0, 0, 0.4),
+        0 0 24px rgba(34, 211, 238, 0.2);
+}
+
+body > .container.mt-5 .card-body {
+    padding: 32px 20px;
+}
+
+body > .container.mt-5 .card h5 {
+    color: #c8eafa;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 18px;
+}
+
+body > .container.mt-5 .card h2 {
+    color: #67e8f9;
+    font-size: 46px;
+    font-weight: 900;
+    text-shadow: 0 0 16px rgba(34, 211, 238, 0.4);
+}
+
+/* Reduce empty space and enlarge dashboard layout */
+.dashboard-heading {
+    padding-top: 25px;
+    padding-bottom: 0;
+    margin-bottom: 10px;
+}
+
+body > .container.mt-5 {
+    padding-top: 20px;
+    padding-bottom: 25px;
+    max-width: 1400px;
+    width: 100%;
+}
+
+body > .container.mt-5 > .row {
+    justify-content: center;
+    column-gap: 18px;
+    row-gap: 25px;
+}
+
+body > .container.mt-5 > .row > .col-md-3 {
+    flex: 0 0 23%;
+    max-width: 23%;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+body > .container.mt-5 .card {
+    min-height: 245px;
+    border-radius: 24px;
+}
+
+body > .container.mt-5 .card h5 {
+    font-size: 23px;
+}
+
+body > .container.mt-5 .card h2 {
+    font-size: 54px;
+}
+
+.risk-gauge {
+    width: 185px;
+    height: 185px;
+}
+
+.risk-gauge-inner {
+    width: 150px;
+    height: 150px;
+}
+
+.risk-gauge-inner strong {
+    font-size: 38px;
+}
+
+/* Keep cards responsive on smaller screens */
+@media (max-width: 767px) {
+    body > .container.mt-5 > .row > .col-md-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+</style>
 </head>
 
 <body>
@@ -27,6 +442,11 @@
 </div>
 </nav>
 
+<div class="dashboard-heading">
+    <h1>AI Phishing Email Analyzer</h1>
+    <p>Intelligent Email Security & Threat Detection</p>
+</div>
+
 <div class="container mt-5">
 
 <div class="row">
@@ -37,7 +457,7 @@
 
 <h5>Total Emails</h5>
 
-<h2>0</h2>
+<h2>{{ total_emails }}</h2>
 
 </div>
 </div>
@@ -49,7 +469,7 @@
 
 <h5>Safe Emails</h5>
 
-<h2>0</h2>
+<h2>{{ safe_emails }}</h2>
 
 </div>
 </div>
@@ -61,7 +481,7 @@
 
 <h5>Phishing Emails</h5>
 
-<h2>0</h2>
+<h2>{{ phishing_emails }}</h2>
 
 </div>
 </div>
@@ -73,7 +493,14 @@
 
 <h5>Risk Score</h5>
 
-<h2>0%</h2>
+<div class="col-md-3 risk-column">
+    <div class="risk-gauge" style="--score: {{ risk_score }}%;"></div>
+        <div class="risk-gauge-inner">
+            <strong>{{ risk_score }}%</strong>
+            <span>RISK SCORE</span>
+        </div>
+    </div>
+</div>
 
 </div>
 </div>
@@ -84,10 +511,12 @@
 </div>
 
 </body>
+
 <div class="container mt-4 text-center">
-    <a href="/analyze" class="btn btn-primary">
-        Analyze Email
+    <a href="/analyze" class="btn btn-primary btn-lg">
+        🛡 Analyze Email
     </a>
 </div>
 
+</body>
 </html>
